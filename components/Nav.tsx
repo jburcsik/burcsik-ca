@@ -5,8 +5,7 @@ import { bio } from "@/lib/data";
 
 const links = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Civic", href: "#civic" },
+  { label: "Community", href: "#civic" },
   { label: "Contact", href: "#contact" },
 ];
 
