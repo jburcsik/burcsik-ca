@@ -23,7 +23,7 @@ export default function Statement() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="py-24 md:py-36 px-6 md:px-12 max-w-site mx-auto">
+    <section id="about" className="py-24 md:py-36 px-6 md:px-12 max-w-site mx-auto">
       <div className="border-t border-foreground/10 pt-16">
         <motion.p
           ref={ref}

@@ -11,9 +11,13 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [nameVisible, setNameVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+      setNameVisible(window.scrollY > 100);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -29,7 +33,9 @@ export default function Nav() {
       <div className="max-w-site mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="font-serif text-lg font-medium tracking-tight hover:text-copper transition-colors"
+          className={`font-serif text-lg font-medium tracking-tight hover:text-copper transition-all duration-300 ${
+            nameVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
+          }`}
         >
           {bio.name.split(" ")[0]}
           <span className="text-copper">.</span>

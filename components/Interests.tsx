@@ -35,7 +35,7 @@ function WinkHeading() {
           key={`l1-${i}`}
           className="inline-block mr-[0.25em] transition-all duration-200"
           style={{
-            textDecoration: hovered ? "underline" : "none",
+            textDecorationLine: hovered ? "underline" : "none",
             textDecorationColor: "#b87333",
             textDecorationThickness: "1.5px",
             textUnderlineOffset: "4px",
@@ -51,7 +51,7 @@ function WinkHeading() {
           key={`l2-${i}`}
           className="inline-block mr-[0.25em] transition-all duration-200"
           style={{
-            textDecoration: hovered ? "underline" : "none",
+            textDecorationLine: hovered ? "underline" : "none",
             textDecorationColor: "#b87333",
             textDecorationThickness: "1.5px",
             textUnderlineOffset: "4px",
