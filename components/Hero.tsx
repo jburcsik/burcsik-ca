@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -8,7 +9,24 @@ const fade = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] },
 });
 
+function getTimeGreeting(): string {
+  const h = new Date().getHours();
+  if (h >= 0 && h < 5)  return "Still up?";
+  if (h >= 5 && h < 8)  return "Early bird.";
+  if (h >= 8 && h < 12) return "Good morning.";
+  if (h >= 12 && h < 14) return "Midday grind.";
+  if (h >= 14 && h < 18) return "Good afternoon.";
+  if (h >= 18 && h < 21) return "Good evening.";
+  return "Burning the midnight oil?";
+}
+
 export default function Hero() {
+  const [greeting, setGreeting] = useState<string | null>(null);
+
+  useEffect(() => {
+    setGreeting(getTimeGreeting());
+  }, []);
+
   return (
     <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 max-w-site mx-auto pb-20 md:pb-28">
       <div>
@@ -17,6 +35,11 @@ export default function Hero() {
           className="text-xs uppercase tracking-[0.25em] text-foreground/35 font-medium mb-8"
         >
           Jesse Burcsik
+          {greeting && (
+            <span className="normal-case tracking-normal ml-3 text-copper/60 not-italic">
+              — {greeting}
+            </span>
+          )}
         </motion.p>
 
         <motion.h1
