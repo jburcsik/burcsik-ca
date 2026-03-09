@@ -10,27 +10,44 @@ export default function Interests() {
 
   return (
     <section className="py-24 md:py-32 px-6 md:px-12 max-w-site mx-auto">
-      <div className="border-t border-foreground/10 pt-16">
-        <p className="text-xs uppercase tracking-[0.2em] text-copper font-medium mb-6">
-          Outside work
-        </p>
-        <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-16 max-w-md">
-          What keeps me sharp
-        </h2>
+      <div className="border-t border-foreground/10 pt-16 grid md:grid-cols-[1fr_2fr] gap-16 md:gap-24 items-start">
 
-        <div ref={ref} className="flex flex-wrap gap-3">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs uppercase tracking-[0.2em] text-copper font-medium mb-6">
+            Outside work
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5">
+            I work hard.<br />I play harder.
+          </h2>
+          <p className="text-foreground/50 text-sm leading-relaxed">
+            Fully bought in on the whole balanced-life thing.
+            The hobbies aren&apos;t for the résumé — they&apos;re what make
+            the work worth doing.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-foreground/8 border border-foreground/8 rounded-sm overflow-hidden">
           {hobbies.map((hobby, i) => (
-            <motion.span
+            <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="px-5 py-2.5 border border-foreground/12 text-foreground/65 text-sm rounded-full hover:border-copper/50 hover:text-foreground transition-colors cursor-default"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
+              className="bg-[var(--background)] px-5 py-5 hover:bg-copper/5 transition-colors group cursor-default"
             >
-              {hobby.label}
-            </motion.span>
+              <div className="w-4 h-px bg-copper/30 mb-3 group-hover:w-6 group-hover:bg-copper transition-all duration-300" />
+              <span className="text-sm text-foreground/65 group-hover:text-foreground transition-colors leading-snug block">
+                {hobby.label}
+              </span>
+            </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
