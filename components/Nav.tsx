@@ -26,7 +26,7 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--background)]/95 backdrop-blur-sm border-b border-black/5 shadow-sm"
+          ? "bg-[#f9f7f4] border-b border-black/8 shadow-[0_1px_12px_0_rgba(0,0,0,0.06)]"
           : "bg-transparent"
       }`}
     >
