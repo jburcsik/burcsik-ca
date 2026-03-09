@@ -1,75 +1,8 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { hobbies } from "@/lib/data";
-
-const line1 = ["I", "work", "hard."];
-const line2 = ["I", "play", "harder"];
-
-function WinkHeading() {
-  const [hovered, setHovered] = useState(false);
-  const [wink, setWink] = useState(false);
-  const winkTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    if (hovered) {
-      winkTimer.current = setTimeout(() => setWink(true), 550);
-    } else {
-      if (winkTimer.current) clearTimeout(winkTimer.current);
-      setWink(false);
-    }
-    return () => { if (winkTimer.current) clearTimeout(winkTimer.current); };
-  }, [hovered]);
-
-  const allWords = [...line1, ...line2];
-
-  return (
-    <h2
-      className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5 cursor-default select-none"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {line1.map((word, i) => (
-        <span
-          key={`l1-${i}`}
-          className="inline-block mr-[0.25em] transition-all duration-200"
-          style={{
-            textDecorationLine: hovered ? "underline" : "none",
-            textDecorationColor: "#b87333",
-            textDecorationThickness: "1.5px",
-            textUnderlineOffset: "4px",
-            transitionDelay: hovered ? `${i * 80}ms` : "0ms",
-          }}
-        >
-          {word}
-        </span>
-      ))}
-      <br />
-      {line2.map((word, i) => (
-        <span
-          key={`l2-${i}`}
-          className="inline-block mr-[0.25em] transition-all duration-200"
-          style={{
-            textDecorationLine: hovered ? "underline" : "none",
-            textDecorationColor: "#b87333",
-            textDecorationThickness: "1.5px",
-            textUnderlineOffset: "4px",
-            transitionDelay: hovered ? `${(line1.length + i) * 80}ms` : "0ms",
-          }}
-        >
-          {word}
-        </span>
-      ))}
-      <span
-        className="inline-block transition-all duration-150"
-        style={{ transitionDelay: hovered ? `${allWords.length * 80}ms` : "0ms" }}
-      >
-        {wink ? "😉" : "."}
-      </span>
-    </h2>
-  );
-}
 
 export default function Interests() {
   const ref = useRef(null);
@@ -88,9 +21,10 @@ export default function Interests() {
           <p className="text-xs uppercase tracking-[0.2em] text-copper font-medium mb-6">
             Outside work
           </p>
-          <WinkHeading />
+          <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5">
+            Beyond the office.
+          </h2>
           <p className="text-foreground/50 text-sm leading-relaxed">
-            Fully bought in on the whole balanced-life thing.
             The hobbies aren&apos;t for the résumé — they&apos;re what make
             the work worth doing.
           </p>
