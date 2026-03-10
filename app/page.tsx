@@ -2,7 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import EasterEggs from "@/components/EasterEggs";
 import Statement from "@/components/Statement";
-import Community from "@/components/Community";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -13,7 +12,6 @@ export default function Home() {
       <Nav />
       <Hero />
       <Statement />
-      <Community />
       <Contact />
       <Footer />
     </main>
