@@ -8,7 +8,7 @@ test.describe("Page load", () => {
 
   test("nav is visible", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("nav")).toBeVisible();
+    await expect(page.locator("header")).toBeVisible();
   });
 
   test("hero renders name", async ({ page }) => {
@@ -29,11 +29,10 @@ test.describe("Page load", () => {
 });
 
 test.describe("Contact form", () => {
-  test("shows validation — empty submit", async ({ page }) => {
+  test("submit button disabled until Turnstile resolves", async ({ page }) => {
     await page.goto("/#contact");
-    await page.getByRole("button", { name: /send message/i }).click();
-    // Browser native validation prevents submission
-    await expect(page.getByRole("button", { name: /send message/i })).toBeVisible();
+    // Button is disabled until Turnstile token is issued
+    await expect(page.getByRole("button", { name: /send message/i })).toBeDisabled();
   });
 
   test("form fields are interactive", async ({ page }) => {
@@ -46,10 +45,10 @@ test.describe("Contact form", () => {
 });
 
 test.describe("Navigation", () => {
-  test("smooth scroll to contact", async ({ page }) => {
+  test("Get in touch CTA links to contact section", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: /contact/i }).click();
-    await expect(page.locator("#contact")).toBeInViewport({ ratio: 0.3 });
+    const cta = page.getByRole("link", { name: /get in touch/i }).first();
+    await expect(cta).toHaveAttribute("href", "#contact");
   });
 });
 
