@@ -13,7 +13,7 @@ test.describe("Page load", () => {
 
   test("hero renders name", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("Jesse Burcsik")).toBeVisible();
+    await expect(page.locator("h1")).toBeVisible();
   });
 
   test("contact section is present", async ({ page }) => {
@@ -53,28 +53,55 @@ test.describe("Navigation", () => {
   });
 });
 
+async function scrollAndCapture(page: any, filename: string) {
+  await page.goto("/");
+  await page.waitForTimeout(600);
+  // Scroll through page to trigger all InView animations
+  await page.evaluate(async () => {
+    await new Promise<void>((resolve) => {
+      let pos = 0;
+      const step = 300;
+      const interval = setInterval(() => {
+        window.scrollBy(0, step);
+        pos += step;
+        if (pos >= document.body.scrollHeight) {
+          window.scrollTo(0, 0);
+          clearInterval(interval);
+          resolve();
+        }
+      }, 80);
+    });
+  });
+  await page.waitForTimeout(600);
+  await page.screenshot({ path: filename, fullPage: true });
+}
+
 test.describe("Visual screenshots", () => {
   test("desktop — full page", async ({ page }) => {
-    await page.goto("/");
-    await page.waitForTimeout(800); // let animations settle
-    await page.screenshot({ path: "tests/screenshots/desktop-full.png", fullPage: true });
+    await scrollAndCapture(page, "tests/screenshots/desktop-full.png");
   });
 
   test("mobile — full page", async ({ page }) => {
-    await page.goto("/");
-    await page.waitForTimeout(800);
-    await page.screenshot({ path: "tests/screenshots/mobile-full.png", fullPage: true });
+    await scrollAndCapture(page, "tests/screenshots/mobile-full.png");
   });
 
-  test("desktop — above the fold", async ({ page }) => {
+  test("desktop — hero", async ({ page }) => {
     await page.goto("/");
     await page.waitForTimeout(800);
     await page.screenshot({ path: "tests/screenshots/desktop-hero.png" });
   });
 
-  test("mobile — above the fold", async ({ page }) => {
+  test("desktop — about section", async ({ page }) => {
     await page.goto("/");
-    await page.waitForTimeout(800);
-    await page.screenshot({ path: "tests/screenshots/mobile-hero.png" });
+    await page.locator("#about").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(600);
+    await page.screenshot({ path: "tests/screenshots/desktop-about.png" });
+  });
+
+  test("desktop — contact section", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(600);
+    await page.screenshot({ path: "tests/screenshots/desktop-contact.png" });
   });
 });

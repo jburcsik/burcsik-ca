@@ -23,14 +23,14 @@ export default function Statement() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="about" className="py-24 md:py-36 px-6 md:px-12 max-w-site mx-auto">
+    <section id="about" className="py-16 md:py-24 px-6 md:px-12 max-w-site mx-auto">
       <div className="border-t border-foreground/10 pt-16">
         <motion.p
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground/80 leading-[1.45] max-w-3xl mb-20"
+          className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground/80 leading-[1.45] max-w-3xl mb-12"
         >
           I work at the edge where technology stops being interesting on its own
           — where it has to earn its keep by actually changing how people live

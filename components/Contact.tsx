@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-12 max-w-site mx-auto">
+    <section id="contact" className="py-16 md:py-20 px-6 md:px-12 max-w-site mx-auto">
       <div className="border-t border-foreground/10 pt-16">
         <motion.div
           ref={ref}
