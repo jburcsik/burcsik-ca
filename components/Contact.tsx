@@ -3,21 +3,27 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { bio } from "@/lib/data";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  // Honeypot — bots fill this in, humans don't
+  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot) return; // silent bot rejection
+    if (!turnstileToken) return;
     setStatus("sending");
 
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ ...form, turnstileToken }),
     });
 
     if (res.ok) {
@@ -87,6 +93,16 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot — hidden from humans, bots fill it in */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div>
                   <label className="text-xs uppercase tracking-widest text-foreground/40 block mb-2">
                     Name
@@ -126,9 +142,15 @@ export default function Contact() {
                     placeholder="What's on your mind?"
                   />
                 </div>
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  onSuccess={setTurnstileToken}
+                  onError={() => setTurnstileToken(null)}
+                  onExpire={() => setTurnstileToken(null)}
+                />
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || !turnstileToken}
                   className="w-full bg-foreground text-[var(--background)] py-3 text-sm font-medium hover:bg-copper transition-colors duration-200 rounded-sm disabled:opacity-50"
                 >
                   {status === "sending" ? "Sending…" : "Send message"}
