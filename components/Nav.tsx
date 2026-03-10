@@ -31,7 +31,7 @@ export default function Nav() {
             nameVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
           }`}
         >
-          {bio.name.split(" ")[0]}
+          {bio.name}
           <span className="text-copper">.</span>
         </a>
         <a
