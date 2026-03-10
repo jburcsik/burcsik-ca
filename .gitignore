@@ -27,3 +27,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# test
+/test-results
+/tests/screenshots
+/tests/screenshots/*
