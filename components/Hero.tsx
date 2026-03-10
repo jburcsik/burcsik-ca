@@ -28,7 +28,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[75vh] flex flex-col justify-end px-6 md:px-12 max-w-site mx-auto pb-16 md:pb-20">
+    <section className="relative min-h-[85vh] flex flex-col justify-end px-6 md:px-12 max-w-site mx-auto pt-32 pb-16 md:pt-36 md:pb-24">
       <div>
         <motion.p
           {...fade(0.3)}
