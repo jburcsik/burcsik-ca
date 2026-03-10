@@ -4,7 +4,7 @@ export const bio = {
   positioning:
     "I work at the intersection of technology and people — building products, leading teams, and contributing to the communities I call home. Based in Canada, focused on impact.",
   location: "Canada",
-  linkedin: "https://linkedin.com/in/jburcsik",
+  linkedin: "https://www.linkedin.com/in/jesseburcsik/",
   github: "https://github.com/jburcsik",
   email: "jesse@burcsik.ca",
 };
