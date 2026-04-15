@@ -16,6 +16,11 @@ test.describe("Page load", () => {
     await expect(page.locator("h1")).toBeVisible();
   });
 
+  test("contact section is present", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#contact")).toBeVisible();
+  });
+
   test("footer LinkedIn link", async ({ page }) => {
     await page.goto("/");
     const link = page.getByRole("link", { name: "LinkedIn" }).last();
@@ -24,10 +29,10 @@ test.describe("Page load", () => {
 });
 
 test.describe("Navigation", () => {
-  test("Get in touch CTA links to email", async ({ page }) => {
+  test("Get in touch CTA links to contact section", async ({ page }) => {
     await page.goto("/");
     const cta = page.getByRole("link", { name: /get in touch/i }).first();
-    await expect(cta).toHaveAttribute("href", "mailto:jesse@burcsik.ca");
+    await expect(cta).toHaveAttribute("href", "#contact");
   });
 });
 

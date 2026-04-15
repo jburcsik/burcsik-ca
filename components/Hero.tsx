@@ -58,7 +58,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
           <a
-            href="mailto:jesse@burcsik.ca"
+            href="#contact"
             className="inline-flex items-center gap-3 bg-foreground text-[var(--background)] px-7 py-3.5 text-sm font-medium hover:bg-copper transition-colors duration-200 rounded-sm"
           >
             Get in touch
