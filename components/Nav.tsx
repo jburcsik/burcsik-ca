@@ -35,7 +35,7 @@ export default function Nav() {
           <span className="text-copper">.</span>
         </a>
         <a
-          href="#contact"
+          href="mailto:jesse@burcsik.ca"
           className="text-sm font-medium px-4 py-2 border border-copper text-copper hover:bg-copper hover:text-[var(--background)] transition-all duration-200 rounded-sm"
         >
           Get in touch

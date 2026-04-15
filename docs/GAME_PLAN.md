@@ -18,7 +18,7 @@ Design ethos: restrained, typographically strong, unhurried. The site should fee
 | UI Primitives | shadcn/ui | Accessible, unstyled-first, copy-into-repo model keeps full control |
 | Animation | Framer Motion | Best-in-class React animation, used for subtle entrance/scroll effects |
 | Hosting | Vercel (Hobby tier) | Free, zero-config Next.js deploys, preview URLs on every PR |
-| Backend (future) | Supabase | Free tier sufficient for contact form; Postgres + Auth if needed later |
+| Backend | None | Supabase was removed 2026-04-14 — site is fully static |
 | Domain | burcsik.ca | Already owned; point DNS to Vercel |
 
 ---
@@ -28,7 +28,6 @@ Design ethos: restrained, typographically strong, unhurried. The site should fee
 | Service | Cost |
 |---|---|
 | Vercel Hobby | Free |
-| Supabase Free tier | Free |
 | burcsik.ca domain renewal | ~$10–15 CAD/yr |
 | **Total** | **~$10–15/yr** |
 
@@ -93,7 +92,7 @@ Each chunk is one focused working session (~30–90 min).
 
 - [ ] **5.1** Build `<Contact>` section: name + email form (static, no backend yet)
 - [ ] **5.2** Build `<Footer>`: copyright, domain, minimal
-- [ ] **5.3** Wire Supabase contact form submission (optional, can defer)
+- [x] **5.3** ~~Wire Supabase contact form submission~~ — Removed 2026-04-14. Contact form and Supabase disconnected entirely.
 - [ ] **5.4** Add `<head>` metadata: title, description, OG tags, favicon
 - [ ] **5.5** Lighthouse audit: target 95+ Performance, 100 Accessibility
 - [ ] **5.6** Point burcsik.ca DNS to Vercel, confirm SSL
