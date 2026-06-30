@@ -32,3 +32,7 @@ next-env.d.ts
 /test-results
 /tests/screenshots
 /tests/screenshots/*
+
+#Project Showcase
+/p/*
+
