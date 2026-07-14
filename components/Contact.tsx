@@ -25,7 +25,7 @@ export default function Contact() {
           </h2>
           <p className="text-foreground/55 leading-relaxed mb-8 max-w-md">
             Whether you&apos;re exploring a collaboration, have a question, or
-            just want to connect — I&apos;m always open to a good conversation.
+            just want to connect. I&apos;m always open to a good conversation.
           </p>
           <div className="space-y-3">
             <a

@@ -6,7 +6,7 @@ import { useRef } from "react";
 const pillars = [
   {
     label: "Builder",
-    body: "I make things — software, teams, organizations. The medium changes; the drive doesn't. I'm most energized when I'm turning an idea into something real that other people can use.",
+    body: "I make things: software, teams, organizations. The medium changes; the drive doesn't. I'm most energized when I'm turning an idea into something real that other people can use.",
   },
   {
     label: "Connector",
@@ -14,7 +14,7 @@ const pillars = [
   },
   {
     label: "Citizen",
-    body: "I believe the places we live deserve the same quality of thought we bring to our work. I show up for my community — not as a brand exercise, but because it matters.",
+    body: "I believe the places we live deserve the same quality of thought we bring to our work. I show up for my community, not as a brand exercise, but because it matters.",
   },
 ];
 
@@ -32,8 +32,8 @@ export default function Statement() {
           transition={{ duration: 0.6 }}
           className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground/80 leading-[1.45] max-w-3xl mb-12"
         >
-          I work at the edge where technology stops being interesting on its own
-          — where it has to earn its keep by actually changing how people live
+          I work at the edge where technology stops being interesting on its own,
+          where it has to earn its keep by actually changing how people live
           and work.
         </motion.p>
 

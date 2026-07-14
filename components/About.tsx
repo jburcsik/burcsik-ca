@@ -42,7 +42,7 @@ export default function About() {
           <div className="space-y-4 text-foreground/65 leading-relaxed">
             <p>
               I&apos;ve spent my career bridging the gap between technical
-              complexity and human outcomes — building systems that scale,
+              complexity and human outcomes: building systems that scale,
               teams that thrive, and communities that grow stronger.
             </p>
             <p>

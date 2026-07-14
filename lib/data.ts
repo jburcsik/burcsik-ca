@@ -2,7 +2,7 @@ export const bio = {
   name: "Jesse Burcsik",
   tagline: "Technology leader. Community builder. Curious generalist.",
   positioning:
-    "I work at the intersection of technology and people — building products, leading teams, and contributing to the communities I call home. Based in Canada, focused on impact.",
+    "I work at the intersection of technology and people: building products, leading teams, and contributing to the communities I call home. Based in Canada, focused on impact.",
   location: "Canada",
   linkedin: "https://www.linkedin.com/in/jesseburcsik/",
   github: "https://github.com/jburcsik",

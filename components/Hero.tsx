@@ -38,9 +38,12 @@ export default function Hero() {
             >
               Jesse Burcsik
               {greeting && (
-                <span className="normal-case tracking-normal ml-3 text-copper/60 not-italic">
-                  — {greeting}
-                </span>
+                <>
+                  :
+                  <span className="normal-case tracking-normal ml-3 text-copper/60 not-italic">
+                    {greeting}
+                  </span>
+                </>
               )}
             </motion.p>
 

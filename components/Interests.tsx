@@ -25,7 +25,7 @@ export default function Interests() {
             Beyond the office.
           </h2>
           <p className="text-foreground/50 text-sm leading-relaxed">
-            The hobbies aren&apos;t for the résumé — they&apos;re what make
+            The hobbies aren&apos;t for the résumé. They&apos;re what make
             the work worth doing.
           </p>
         </motion.div>

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import About from "@/components/About";
 
 export const metadata = {
-  title: "Résumé — Jesse Burcsik",
+  title: "Résumé | Jesse Burcsik",
   robots: { index: false, follow: false },
 };
 

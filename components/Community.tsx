@@ -25,7 +25,7 @@ export default function Community() {
           </h2>
           <p className="text-foreground/50 text-sm leading-relaxed">
             Civic engagement isn&apos;t something I do to round out a profile.
-            It&apos;s how I think — that the skills and perspective built
+            It&apos;s how I think: that the skills and perspective built
             professionally have an obligation to be put to broader use.
           </p>
         </motion.div>
