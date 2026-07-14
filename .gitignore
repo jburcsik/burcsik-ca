@@ -36,3 +36,7 @@ next-env.d.ts
 #Project Showcase
 /p/*
 
+# scratch / tooling artifacts
+/.playwright-mcp
+/*.jpeg
+/*.png
